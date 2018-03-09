@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: lib/kotlin-stdlib-jdk8.jar lib/kotlin-stdlib.jar lib/kotli
+ n-reflect.jar lib/klaxon.jar
+Main-Class: it.menzani.urlshortener.HttpServerKt
+
