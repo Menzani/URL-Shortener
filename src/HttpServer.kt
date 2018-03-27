@@ -47,6 +47,9 @@ class RequestHandler(private val socket: Socket, private val dataSource: DataSou
     }
 
     private fun parseRequest(): Response {
+        if (!input.hasNext()) {
+            return Response.BadRequest
+        }
         val requestLine = input.next()
         if (!requestLine.startsWith("GET /")) {
             return Response.Ok("Serving GET requests only.")
