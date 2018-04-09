@@ -64,6 +64,9 @@ class RequestHandler(private val socket: Socket, private val dataSource: DataSou
                 if (code == "favicon.ico") {
                     return Response.NotFound
                 }
+                if (code == "robots.txt") {
+                    return Response.Ok("User-agent: *${LINE_SEPARATOR}Disallow: /")
+                }
                 if ("%20" in code) {
                     return Response.Ok("Code may not contain spaces.")
                 }
