@@ -61,7 +61,7 @@ class RequestHandler(private val socket: Socket, private val dataSource: DataSou
             protocolVersionPosition > 105 -> Response.Ok("Code must not be longer than 100 characters.")
             else -> {
                 val code = requestLine.substring(5, protocolVersionPosition)
-                if (code == "favicon.ico") {
+                if (code in arrayOf("index.html", "index.htm", "index.php", "favicon.ico")) {
                     return Response.NotFound
                 }
                 if (code == "robots.txt") {
